@@ -16,6 +16,7 @@ export class HomePage {
         preload(){
           this.game.load.image('platform', 'assets/imgs/platform.png');
           this.game.load.image('ball', 'assets/imgs/ball.png');
+         
         },
         create() {
           this.game.stage.backgroundColor = '#3090a1';           
@@ -26,14 +27,15 @@ export class HomePage {
     },
     Menu: {
         preload(){
-            this.game.load.bitmapFont('carrier_command', 'assets/fonts/bitmapFonts/carrier_command.png', 'assets/fonts/bitmapFonts/carrier_command.xml');
+          this.game.load.bitmapFont('carrier_command', 'assets/fonts/bitmapFonts/carrier_command.png', 'assets/fonts/bitmapFonts/carrier_command.xml');
             },
         create() {
           this.game.input.onTap.add((pointer)=>{
               this.game.state.start("Level");
           }, this);
+
           this.timer = 0;
-          this.text = this.game.add.bitmapText(10, 100, 'carrier_command','Touch to Play Game !', 14);
+          this.text = this.game.add.bitmapText(35, this.game.world.centerY - 150, 'carrier_command','Tap to Play Game !', 14);
           
           this.platform =  this.game.add.sprite(0, this.game.world.bounds.height - 100,'platform');
           this.game.physics.enable(this.platform, Phaser.Physics.ARCADE);
